@@ -4,7 +4,7 @@ This project is centered around managing AWS Identity and Access Management (IAM
 
 ## Project Overview
 
-<img src="assets/proj-iam-users.png" alt="architechure diagram" width="600"/>
+<img src="../assets/proj-iam-users.png" alt="architechure diagram" width="600"/>
 
 ## Desired Outcome
 
