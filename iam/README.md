@@ -1,21 +1,22 @@
-# Managing IAM Users and Roles with Terraform
+# AWS IAM Management with Terraform & YAML
 
-This project is centered around managing AWS Identity and Access Management (IAM) users and roles using Terraform and YAML. The primary objective is to automate the process of creating users, assigning roles, and ensuring secure role assignment. User information, including usernames and roles, will be stored in a YAML file, while role information will be managed in Terraform. An important aspect of this project is to ensure that roles can only be assumed by the users assigned to them, adding an extra layer of security.
+## Overview
+This project automates the management of AWS Identity and Access Management (IAM) entities — users, roles, and policies — using Terraform and YAML configuration files.
+It demonstrates Infrastructure as Code (IaC) best practices for maintaining secure, scalable, and version-controlled IAM setups.
 
-## Project Overview
-
-<img src="./assets/proj-iam-users.png" alt="architechure diagram" width="600"/>
+User details (usernames, assigned roles) are stored in a YAML file, while Terraform dynamically reads and provisions them to AWS. The system ensures that roles can only be assumed by the users assigned to them, providing strong security boundaries.
 
 ## Desired Outcome
 
-1. Store user information (username and their respective roles) in a YAML file.
-2. Store role information (role name and their respective policies) in Terraform.
-    1. **Hint:** You can use AWS-Managed policies to make your life easier, but if you wish an extra layer of learning and challenge, by all means go ahead and create your own policies!
-3. Based on the provided YAML file, create users in the AWS account.
-4. Also make sure to create login profiles for the users, so that they can login into the AWS console.
-    1. **Hint:** Setting up the necessary elements to send passwords securely via email can be quite cumbersone. Although you should **never do that in real-life, production projects**, for our purposes here free to output this information from Terraform.
-5. Based on the role information stored in Terraform, create the respective roles and attach the correct policies to these roles.
-6. Based on the YAML file, link created users to the respective roles they can assume.
-7. Ensure that roles can only be assumed by the users that are assigned to those roles.
-8. Test everything in the AWS console, it's quite fun!
-9. Make sure to delete all the resources at the end of the project!
+### IAM Users
+1. Create YAML file users.yaml for user definitions:
+
+```yaml
+users:
+  - name: alice
+    role: S3ReadOnly
+  - name: bob
+    role: EC2FullAccess
+```
+
+2. Write Terraform code (user.tf) to read YAML data and create IAM users dynamically.
