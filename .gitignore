@@ -36,3 +36,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 *.lock.hcl
+
+# Including .env file
+.env
