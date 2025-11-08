@@ -1,4 +1,9 @@
 locals {
+  users = yamldecode(var.filepath)["users"]
+  names = [for u in local.users: u.name]
+
+  map = {for u in local.users: u.name => u.role}
+  
   force_destroy = true
 
   policy_arns = {

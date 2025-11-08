@@ -1,5 +1,4 @@
 module "iam-user" {
   source = "./iam-user/"
-  user-name = "demo-iac"
-  access-type = "readonly"
+  filepath = file("${path.module}/templates/users-1.yml")
 }
