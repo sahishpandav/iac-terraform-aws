@@ -1,4 +1,9 @@
 locals {
+  users = yamldecode(file("${path.module}/templates/users-1.yml"))["users"]
+  names = [for u in local.users: u.name]
+
+  map = {for u in local.users: u.name => u.role}
+  
   force_destroy = true
 
   policy_arns = {
