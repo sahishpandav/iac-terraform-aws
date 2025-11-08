@@ -23,4 +23,4 @@ users:
     role: readonly
 ```
 
-2. Write Terraform code (user.tf) to read YAML data and create IAM users dynamically.
+2. Write Terraform code (user.tf) to read YAML data and create IAM users dynamically. Based upon role the IAM users should be created in the account. Use aws managed policy to attach permissions. 
