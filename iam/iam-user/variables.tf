@@ -19,6 +19,11 @@
 #     }
 # }
 
+variable "filepath" {
+    description = "the file path of yaml file"
+    type = string
+}
+
 variable "tags" {
     type = map(any)
     description = "List of tags"

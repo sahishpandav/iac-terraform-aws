@@ -1,0 +1,9 @@
+users:
+  - name: alice
+    role: admin
+  - name: bob
+    role: readonly
+  - name: ganesh
+    role: poweruser
+  - name: parth
+    role: admin

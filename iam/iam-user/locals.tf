@@ -1,5 +1,5 @@
 locals {
-  users = yamldecode(file("${path.module}/templates/users-1.yml"))["users"]
+  users = yamldecode(var.filepath)["users"]
   names = [for u in local.users: u.name]
 
   map = {for u in local.users: u.name => u.role}
